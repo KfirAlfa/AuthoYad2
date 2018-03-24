@@ -32,7 +32,7 @@ SEARCH = {
 
 
 def _get_html(url, params=None):
-    chrmoe_options =  webdriver.ChromeOptions()
+    chrmoe_options =  Options()
     chrmoe_options.add_argument("--headless")
     browser = webdriver.Chrome(chrome_options=chrmoe_options)
     url = Request('GET', url, params=params).prepare().url
