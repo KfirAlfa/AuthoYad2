@@ -6,6 +6,7 @@ import mail
 
 from models import HouseAd
 from bs4 import BeautifulSoup
+import time
 
 
 class AdParser(object):
@@ -75,7 +76,9 @@ class Yad2Parser(AdParser):
 
 def main():
     parser = Yad2Parser()
-    parser.find_apartments(4)
+    while True:
+        parser.find_apartments(4)
+        time.sleep(60*60)
 
 if __name__ == '__main__':
     main()
