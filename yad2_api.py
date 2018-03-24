@@ -2,6 +2,8 @@
 
 from requests import Request
 from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
 
 MAIN_URL = "http://www.yad2.co.il/Nadlan/"
 SEARCH_PAGE = "rent.php?"
@@ -31,7 +33,13 @@ SEARCH = {
 
 
 def _get_html(url, params=None):
-    browser = webdriver.PhantomJS()
+    caps = DesiredCapabilities.PHANTOMJS
+    caps["userAgent"] = "Mozilla/5.0"
+    caps["browserName"] = "Google Chrome"
+    print caps
+
+    browser = webdriver.PhantomJS(desired_capabilities=caps)
+
     url = Request('GET', url, params=params).prepare().url
     browser.get(url)
     html = browser.page_source
