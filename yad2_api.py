@@ -2,7 +2,6 @@
 
 from requests import Request
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 
 MAIN_URL = "http://www.yad2.co.il/Nadlan/"
 SEARCH_PAGE = "rent.php?"
@@ -32,9 +31,7 @@ SEARCH = {
 
 
 def _get_html(url, params=None):
-    chrmoe_options =  Options()
-    chrmoe_options.add_argument("--headless")
-    browser = webdriver.Chrome(chrome_options=chrmoe_options)
+    browser = webdriver.PhantomJS()
     url = Request('GET', url, params=params).prepare().url
     browser.get(url)
     html = browser.page_source
