@@ -31,12 +31,22 @@ SEARCH = {
     "Info": "",
 }
 
+KOMO_URL = "https://www.komo.co.il/code/nadlan/apartments-for-rent.asp"
+KOMO_PARAMS = {
+    "subLuachNum":1,
+    "nehes": 1,
+    "ezorNum": 21,
+    "fromRooms": 4,
+    "toPrice": 11000,
+    "dvSearch": 1,
+}
+
 
 def _get_html(url, params=None):
     caps = DesiredCapabilities.PHANTOMJS
     caps["userAgent"] = "Mozilla/5.0"
     caps["browserName"] = "Google Chrome"
-    print caps
+    print url
 
     browser = webdriver.PhantomJS(desired_capabilities=caps)
 
@@ -66,3 +76,14 @@ def get_ad_link(ad_id):
     params = GET_AD_PARAMS
     params["RecordID"] = ad_id
     return Request('GET', MAIN_URL + GET_AD_PAGE, params=params).prepare().url
+
+
+def get_komo_adds(from_rooms=None, to_price=None, ):
+    params = KOMO_PARAMS
+    if from_rooms is not None:
+        params['fromRooms'] = from_rooms
+    if to_price is not None:
+        params['to_price'] = to_price
+
+    html = _get_html(KOMO_URL, params=params)
+    return html

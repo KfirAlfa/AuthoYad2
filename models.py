@@ -11,5 +11,6 @@ class HouseAd(object):
         self._date = date
 
     def __unicode__(self):
-        return u"Address: {address}. {rooms} חדרים {price} שח {link}".format(
+        return u"{address}. {rooms} חדרים {price} שח {link}".format(
             address=self._address, rooms=self._rooms, price=self._price, link=self._link)
+

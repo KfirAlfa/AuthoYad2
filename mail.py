@@ -8,7 +8,7 @@ from email.mime.multipart import MIMEMultipart
 
 MY_EMAIL = "yad2fuak@gmail.com"
 PASSWORD = "fuckyad2"
-MAILING_LIST = ["kfir.alf@gmail.com", "Razlotan12@gmail.com", "lior3122@gmail.com"]
+MAILING_LIST = ["kfir.alf@gmail.com", "Razlotan12@gmail.com", "lior3122@gmail.com", ""]
 
 class AddSender(object):
     def __init__(self):
@@ -25,4 +25,4 @@ class AddSender(object):
 
         body = MIMEText(adds.encode("utf-8"), "plain", "utf-8")
         msg.attach(body)
-        self._server.sendmail(MY_EMAIL, MAILING_LIST, msg.as_string())
+        #self._server.sendmail(MY_EMAIL, MAILING_LIST, msg.as_string())
