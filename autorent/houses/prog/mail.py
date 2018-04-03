@@ -26,3 +26,6 @@ class AddSender(object):
         body = MIMEText(adds.encode("utf-8"), "plain", "utf-8")
         msg.attach(body)
         #self._server.sendmail(MY_EMAIL, MAILING_LIST, msg.as_string())
+
+
+
