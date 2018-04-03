@@ -121,7 +121,7 @@ class AddDogem(object):
         while True:
             for parser in self._parsers:
                 print "Geting new", parser
-                new_adds.append(parser.find_apartments(4))
+                new_adds += parser.find_apartments(4)
             if new_adds:
                 self._mail.send_new_adds(new_adds)
                 new_adds = []
