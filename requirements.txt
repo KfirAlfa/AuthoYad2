@@ -60,7 +60,7 @@ pyparsing==2.0.1
 python-dateutil==1.5
 pytz==2013.7
 requests==2.18.4
-scapy==2.3.3
+scapy==2.4.1
 scipy==0.13.0b1
 selenium==3.11.0
 singledispatch==3.4.0.3
